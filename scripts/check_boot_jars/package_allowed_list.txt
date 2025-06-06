@@ -284,6 +284,9 @@ mediatek\..*
 vendor\.mediatek
 vendor\.mediatek\..*
 
+# DerpFest adds
+org.derpfest.*
+
 # NT adds
 com\.nothing
 com\.nothing\..*
