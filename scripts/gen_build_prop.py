@@ -246,7 +246,7 @@ def generate_build_info(args):
   print(f"ro.build.flavor={config['BuildFlavor']}")
 
   print(f"ro.lineage.device={config['LineageDevice']}")
-  print(f"ro.lunaris.device={config['LineageDevice']}")
+  print(f"ro.alch3my.device={config['LineageDevice']}")
 
   print(f"persist.sys.pihooks_FINGERPRINT={config['PihooksGmsFp']}")
   print(f"persist.sys.pihooks_MODEL={config['PihooksGmsModel']}")

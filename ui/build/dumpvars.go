@@ -154,11 +154,12 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, write_soong_
 var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
-	"LUNARIS_VERSION",
-	"LUNARIS_BUILD_TYPE",
-	"LUNARIS_BUILD_VARIANT",
+	"ALCH3MY_VERSION",
+	"LINEAGE_VERSION",
+	"ALCH3MY_MAINTAINER",
+	"ALCH3MY_BUILD_TYPE",
+	"ALCH3MY_BUILD_VARIANT",
 	"PRODUCT_DEFAULT_DEV_CERTIFICATE",
-	"PRODUCT_SOURCE_ROOT_DIRS",
 	"TARGET_DEVICE",
 	"TARGET_BUILD_VARIANT",
 	"TARGET_BUILD_APPS",
@@ -166,51 +167,36 @@ var BannerVars = []string{
 	"TARGET_ARCH",
 	"TARGET_ARCH_VARIANT",
 	"TARGET_CPU_VARIANT",
-	"TARGET_2ND_ARCH",
-	"TARGET_2ND_ARCH_VARIANT",
-	"TARGET_2ND_CPU_VARIANT",
-	"HOST_OS",
-	"HOST_OS_EXTRA",
-	"HOST_CROSS_OS",
 	"BUILD_ID",
+	"RELEASE_PLATFORM_SECURITY_PATCH",
 	"OUT_DIR",
-	"SOONG_SDK_SNAPSHOT_TARGET_BUILD_RELEASE",
-	"PRODUCT_IS_ATV",
-	"PRODUCT_IS_AUTOMOTIVE",
-	"WITH_SU",
 	"WITH_GMS",
-	"GMS_MAKEFILE",
-	"MAINLINE_MODULES_MAKEFILE",
-	"PRODUCT_SOONG_NAMESPACES",
 }
 
 func Banner(config Config, make_vars map[string]string) string {
 	b := &bytes.Buffer{}
 
-	fmt.Fprintln(b, "==============================================================================")
-	fmt.Fprintln(b, "                                                           				   ")
-	fmt.Fprintln(b, "  ██╗     ██╗   ██╗███╗   ██╗ █████╗ ██████╗ ██╗███████╗     ██████╗ ███████╗ ")
-	fmt.Fprintln(b, "  ██║     ██║   ██║████╗  ██║██╔══██╗██╔══██╗██║██╔════╝    ██╔═══██╗██╔════╝ ")
-	fmt.Fprintln(b, "  ██║     ██║   ██║██╔██╗ ██║███████║██████╔╝██║███████╗    ██║   ██║███████╗ ")
-	fmt.Fprintln(b, "  ██║     ██║   ██║██║╚██╗██║██╔══██║██╔══██╗██║╚════██║    ██║   ██║╚════██║ ")
-	fmt.Fprintln(b, "  ███████╗╚██████╔╝██║ ╚████║██║  ██║██║  ██║██║███████║    ╚██████╔╝███████║ ")
-	fmt.Fprintln(b, "  ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝     ╚═════╝ ╚══════  ")
-	fmt.Fprintln(b, "                                                            				   ")
-	fmt.Fprintln(b, "==============================================================================")
-	fmt.Fprintf(b, "%s = %s\n", "LUNARIS_VERSION", make_vars["LUNARIS_VERSION"])
-	fmt.Fprintf(b, "%s = %s\n", "LUNARIS_BUILD_TYPE", make_vars["LUNARIS_BUILD_TYPE"])
+	fmt.Fprintln(b, "\033[1;36m============================================================================================")
+	fmt.Fprintln(b, "                                                                                                      ")
+	fmt.Fprintln(b, "\033[1;31m   █████╗  ██╗        ██████╗  ██╗  ██╗ ██████╗  ███╗   ███╗ ██╗   ██╗    ██████╗   ██████╗ ")
+	fmt.Fprintln(b, "\033[1;31m  ██╔══██╗ ██║       ██╔════╝  ██║  ██║ ╚════██╗ ████╗ ████║ ╚██╗ ██╔╝   ██╔═══██╗ ██╔════╝ ")
+	fmt.Fprintln(b, "\033[1;31m  ███████║ ██║       ██║       ███████║  █████╔╝ ██╔████╔██║  ╚████╔╝    ██║   ██║ ╚█████╗  ")
+	fmt.Fprintln(b, "\033[1;31m  ██╔══██║ ██║       ██║       ██╔══██║  ╚═══██╗ ██║╚██╔╝██║   ╚██╔╝     ██║   ██║  ╚═══██╗ ")
+	fmt.Fprintln(b, "\033[1;31m  ██║  ██║ ███████╗  ╚██████╗  ██║  ██║ ██████╔╝ ██║ ╚═╝ ██║    ██║      ╚██████╔╝ ██████╔╝ ")
+	fmt.Fprintln(b, "\033[1;31m  ╚═╝  ╚═╝ ╚══════╝   ╚═════╝  ╚═╝  ╚═╝ ╚═════╝  ╚═╝     ╚═╝    ╚═╝       ╚═════╝  ╚═════╝  ")
+	fmt.Fprintln(b, "                                                            				                           ")
+	fmt.Fprintln(b, "\033[1;36m============================================================================================")
 	fmt.Fprintf(b, "%s = %s\n", "PLATFORM_VERSION", make_vars["PLATFORM_VERSION"])
-	fmt.Fprintf(b, "%s = %s\n", "LUNARIS_BUILD_VARIANT", make_vars["LUNARIS_BUILD_VARIANT"])
-	fmt.Fprintf(b, "%s = %s\n", "TARGET_PRODUCT", make_vars["TARGET_PRODUCT"])
+	fmt.Fprintf(b, "%s = %s\n", "LINEAGE_VERSION", make_vars["LINEAGE_VERSION"])
+	fmt.Fprintf(b, "%s = %s\n", "ALCH3MY_MAINTAINER", make_vars["ALCH3MY_MAINTAINER"])
+	fmt.Fprintf(b, "%s = %s\n", "BUILD_ID", make_vars["BUILD_ID"])
+	fmt.Fprintf(b, "%s = %s\n", "RELEASE_PLATFORM_SECURITY_PATCH", make_vars["RELEASE_PLATFORM_SECURITY_PATCH"])
+	fmt.Fprintf(b, "%s = %s\n", "PRODUCT_DEFAULT_DEV_CERTIFICATE", make_vars["PRODUCT_DEFAULT_DEV_CERTIFICATE"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_BUILD_VARIANT", make_vars["TARGET_BUILD_VARIANT"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_ARCH", make_vars["TARGET_ARCH"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_ARCH_VARIANT", make_vars["TARGET_ARCH_VARIANT"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_CPU_VARIANT", make_vars["TARGET_CPU_VARIANT"])
-	fmt.Fprintf(b, "%s = %s\n", "TARGET_2ND_ARCH", make_vars["TARGET_2ND_ARCH"])
-	fmt.Fprintf(b, "%s = %s\n", "BUILD_ID", make_vars["BUILD_ID"])
-	fmt.Fprintf(b, "%s = %s\n", "PRODUCT_DEFAULT_DEV_CERTIFICATE", make_vars["PRODUCT_DEFAULT_DEV_CERTIFICATE"])
 	fmt.Fprintf(b, "%s = %s\n", "OUT_DIR", make_vars["OUT_DIR"])
-	fmt.Fprintf(b, "%s=%s\n", "PRODUCT_SOONG_NAMESPACES", make_vars["PRODUCT_SOONG_NAMESPACES"])
 	fmt.Fprintln(b, "===============================================================")
 
 	return b.String()
@@ -281,9 +267,7 @@ func runMakeProductConfig(ctx Context, config Config) {
 		// Not used, but useful to be in the soong.log
 		"TARGET_BUILD_TYPE",
 		"HOST_ARCH",
-		"HOST_2ND_ARCH",
 		"HOST_CROSS_ARCH",
-		"HOST_CROSS_2ND_ARCH",
 		"HOST_BUILD_TYPE",
 
 		"DEFAULT_WARNING_BUILD_MODULE_TYPES",
