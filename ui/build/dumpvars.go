@@ -182,7 +182,8 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, tmpDir strin
 var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
-	"ALCH3MY_VERSION",
+    "ALCH3MY_VERSION",
+	"LINEAGE_VERSION",
 	"PRODUCT_SOURCE_ROOT_DIRS",
 	"TARGET_DEVICE",
 	"TARGET_BUILD_VARIANT",
@@ -249,7 +250,29 @@ func Banner(config Config, make_vars map[string]string) string {
 		fmt.Fprintf(b, "SOONG_PARTIAL_ANALYSIS=%s\n", config.partialAnalysisTargets)
 	}
 
-	fmt.Fprint(b, "============================================")
+	fmt.Fprintln(b, "\033[1;35m=========================================================================================")
+	fmt.Fprintln(b, "                                                                                                   ")
+	fmt.Fprintln(b, "\033[1;32m   █████╗  ██╗       ██████╗  ██╗  ██╗ ██████╗  ███╗   ███╗ ██╗   ██╗  ██████╗   ██████╗ ")
+	fmt.Fprintln(b, "\033[1;32m  ██╔══██╗ ██║      ██╔════╝  ██║  ██║ ╚════██╗ ████╗ ████║ ╚██╗ ██╔╝ ██╔═══██╗ ██╔════╝ ")
+	fmt.Fprintln(b, "\033[1;32m  ███████║ ██║      ██║       ███████║  █████╔╝ ██╔████╔██║  ╚████╔╝  ██║   ██║ ╚█████╗  ")
+	fmt.Fprintln(b, "\033[1;32m  ██╔══██║ ██║      ██║       ██╔══██║  ╚═══██╗ ██║╚██╔╝██║   ╚██╔╝   ██║   ██║  ╚═══██╗ ")
+	fmt.Fprintln(b, "\033[1;32m  ██║  ██║ ███████╗ ╚██████╗  ██║  ██║ ██████╔╝ ██║ ╚═╝ ██║    ██║    ╚██████╔╝ ██████╔╝ ")
+	fmt.Fprintln(b, "\033[1;32m  ╚═╝  ╚═╝ ╚══════╝  ╚═════╝  ╚═╝  ╚═╝ ╚═════╝  ╚═╝     ╚═╝    ╚═╝     ╚═════╝  ╚═════╝  ")
+	fmt.Fprintln(b, "                                                           				                        ")
+	fmt.Fprintln(b, "\033[1;35m=========================================================================================")
+	fmt.Fprintf(b, "%s = %s\n", "PLATFORM_VERSION", make_vars["PLATFORM_VERSION"])
+	fmt.Fprintf(b, "%s = %s\n", "LINEAGE_VERSION", make_vars["LINEAGE_VERSION"])
+	fmt.Fprintf(b, "%s = %s\n", "BUILD_ID", make_vars["BUILD_ID"])
+	fmt.Fprintf(b, "%s = %s\n", "RELEASE_PLATFORM_SECURITY_PATCH", make_vars["RELEASE_PLATFORM_SECURITY_PATCH"])
+	fmt.Fprintf(b, "%s = %s\n", "PRODUCT_DEFAULT_DEV_CERTIFICATE", make_vars["PRODUCT_DEFAULT_DEV_CERTIFICATE"])
+	fmt.Fprintf(b, "%s = %s\n", "TARGET_BUILD_VARIANT", make_vars["TARGET_BUILD_VARIANT"])
+	fmt.Fprintf(b, "%s = %s\n", "TARGET_ARCH", make_vars["TARGET_ARCH"])
+	fmt.Fprintf(b, "%s = %s\n", "TARGET_ARCH_VARIANT", make_vars["TARGET_ARCH_VARIANT"])
+	fmt.Fprintf(b, "%s = %s\n", "TARGET_CPU_VARIANT", make_vars["TARGET_CPU_VARIANT"])
+	fmt.Fprintf(b, "%s = %s\n", "OUT_DIR", make_vars["OUT_DIR"])
+	fmt.Fprintln(b, "===============================================================")
+
+	fmt.Fprintln(b, "\033[0m")
 
 	return b.String()
 }
