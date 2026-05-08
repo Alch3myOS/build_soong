@@ -152,43 +152,33 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, write_soong_
 
 // Variables to print out in the top banner
 var BannerVars = []string{
-	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
-	"ALCH3MY_VERSION",
 	"LINEAGE_VERSION",
-	"ALCH3MY_MAINTAINER",
-	"ALCH3MY_BUILD_TYPE",
-	"ALCH3MY_BUILD_VARIANT",
 	"PRODUCT_DEFAULT_DEV_CERTIFICATE",
-	"TARGET_DEVICE",
 	"TARGET_BUILD_VARIANT",
-	"TARGET_BUILD_APPS",
-	"TARGET_BUILD_UNBUNDLED",
 	"TARGET_ARCH",
 	"TARGET_ARCH_VARIANT",
 	"TARGET_CPU_VARIANT",
 	"BUILD_ID",
 	"RELEASE_PLATFORM_SECURITY_PATCH",
 	"OUT_DIR",
-	"WITH_GMS",
 }
 
 func Banner(config Config, make_vars map[string]string) string {
 	b := &bytes.Buffer{}
 
-	fmt.Fprintln(b, "\033[1;36m============================================================================================")
-	fmt.Fprintln(b, "                                                                                                      ")
-	fmt.Fprintln(b, "\033[1;31m   █████╗  ██╗        ██████╗  ██╗  ██╗ ██████╗  ███╗   ███╗ ██╗   ██╗    ██████╗   ██████╗ ")
-	fmt.Fprintln(b, "\033[1;31m  ██╔══██╗ ██║       ██╔════╝  ██║  ██║ ╚════██╗ ████╗ ████║ ╚██╗ ██╔╝   ██╔═══██╗ ██╔════╝ ")
-	fmt.Fprintln(b, "\033[1;31m  ███████║ ██║       ██║       ███████║  █████╔╝ ██╔████╔██║  ╚████╔╝    ██║   ██║ ╚█████╗  ")
-	fmt.Fprintln(b, "\033[1;31m  ██╔══██║ ██║       ██║       ██╔══██║  ╚═══██╗ ██║╚██╔╝██║   ╚██╔╝     ██║   ██║  ╚═══██╗ ")
-	fmt.Fprintln(b, "\033[1;31m  ██║  ██║ ███████╗  ╚██████╗  ██║  ██║ ██████╔╝ ██║ ╚═╝ ██║    ██║      ╚██████╔╝ ██████╔╝ ")
-	fmt.Fprintln(b, "\033[1;31m  ╚═╝  ╚═╝ ╚══════╝   ╚═════╝  ╚═╝  ╚═╝ ╚═════╝  ╚═╝     ╚═╝    ╚═╝       ╚═════╝  ╚═════╝  ")
-	fmt.Fprintln(b, "                                                            				                           ")
-	fmt.Fprintln(b, "\033[1;36m============================================================================================")
+	fmt.Fprintln(b, "\033[1;35m=========================================================================================")
+	fmt.Fprintln(b, "                                                                                                   ")
+	fmt.Fprintln(b, "\033[1;32m   █████╗  ██╗       ██████╗  ██╗  ██╗ ██████╗  ███╗   ███╗ ██╗   ██╗  ██████╗   ██████╗ ")
+	fmt.Fprintln(b, "\033[1;32m  ██╔══██╗ ██║      ██╔════╝  ██║  ██║ ╚════██╗ ████╗ ████║ ╚██╗ ██╔╝ ██╔═══██╗ ██╔════╝ ")
+	fmt.Fprintln(b, "\033[1;32m  ███████║ ██║      ██║       ███████║  █████╔╝ ██╔████╔██║  ╚████╔╝  ██║   ██║ ╚█████╗  ")
+	fmt.Fprintln(b, "\033[1;32m  ██╔══██║ ██║      ██║       ██╔══██║  ╚═══██╗ ██║╚██╔╝██║   ╚██╔╝   ██║   ██║  ╚═══██╗ ")
+	fmt.Fprintln(b, "\033[1;32m  ██║  ██║ ███████╗ ╚██████╗  ██║  ██║ ██████╔╝ ██║ ╚═╝ ██║    ██║    ╚██████╔╝ ██████╔╝ ")
+	fmt.Fprintln(b, "\033[1;32m  ╚═╝  ╚═╝ ╚══════╝  ╚═════╝  ╚═╝  ╚═╝ ╚═════╝  ╚═╝     ╚═╝    ╚═╝     ╚═════╝  ╚═════╝  ")
+	fmt.Fprintln(b, "                                                           				                        ")
+	fmt.Fprintln(b, "\033[1;35m=========================================================================================")
 	fmt.Fprintf(b, "%s = %s\n", "PLATFORM_VERSION", make_vars["PLATFORM_VERSION"])
 	fmt.Fprintf(b, "%s = %s\n", "LINEAGE_VERSION", make_vars["LINEAGE_VERSION"])
-	fmt.Fprintf(b, "%s = %s\n", "ALCH3MY_MAINTAINER", make_vars["ALCH3MY_MAINTAINER"])
 	fmt.Fprintf(b, "%s = %s\n", "BUILD_ID", make_vars["BUILD_ID"])
 	fmt.Fprintf(b, "%s = %s\n", "RELEASE_PLATFORM_SECURITY_PATCH", make_vars["RELEASE_PLATFORM_SECURITY_PATCH"])
 	fmt.Fprintf(b, "%s = %s\n", "PRODUCT_DEFAULT_DEV_CERTIFICATE", make_vars["PRODUCT_DEFAULT_DEV_CERTIFICATE"])
@@ -198,6 +188,8 @@ func Banner(config Config, make_vars map[string]string) string {
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_CPU_VARIANT", make_vars["TARGET_CPU_VARIANT"])
 	fmt.Fprintf(b, "%s = %s\n", "OUT_DIR", make_vars["OUT_DIR"])
 	fmt.Fprintln(b, "===============================================================")
+
+	fmt.Fprintln(b, "\033[0m")
 
 	return b.String()
 }
