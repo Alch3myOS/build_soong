@@ -252,6 +252,7 @@ qcom.fmradio
 
 # Xiaomi adds
 com\.xiaomi\..*
+com\.camera\..*
 
 ###################################################
 # IFAA Manager used for Alipay and/or WeChat payment
