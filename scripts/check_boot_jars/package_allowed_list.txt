@@ -217,6 +217,9 @@ vendor\.google_clockwork\.displayoffload3\..*
 lineageos\.platform
 org\.lineageos\.platform\.internal
 
+# Alch3myOS adds
+org\.alch3my\..*
+
 # MTK adds
 com\.mediatek
 com\.mediatek\..*
