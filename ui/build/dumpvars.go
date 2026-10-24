@@ -182,7 +182,7 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, tmpDir strin
 var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
-    "ALCH3MY_VERSION",
+	"ALCH3MY_VERSION",
 	"ALCH3MY_FULL_VERSION",
 	"PRODUCT_SOURCE_ROOT_DIRS",
 	"TARGET_DEVICE",
@@ -198,6 +198,7 @@ var BannerVars = []string{
 	"HOST_OS",
 	"BUILD_ID",
 	"PLATFORM_SECURITY_PATCH",
+	"PRODUCT_DEFAULT_DEV_CERTIFICATE",
 	"OUT_DIR",
 	"SOONG_SDK_SNAPSHOT_TARGET_BUILD_RELEASE",
 	"PRODUCT_IS_ATV",
@@ -263,7 +264,7 @@ func Banner(config Config, make_vars map[string]string) string {
 	fmt.Fprintf(b, "%s = %s\n", "PLATFORM_VERSION", make_vars["PLATFORM_VERSION"])
 	fmt.Fprintf(b, "%s = %s\n", "ALCH3MY_FULL_VERSION", make_vars["ALCH3MY_FULL_VERSION"])
 	fmt.Fprintf(b, "%s = %s\n", "BUILD_ID", make_vars["BUILD_ID"])
-	fmt.Fprintf(b, "%s = %s\n", "RELEASE_PLATFORM_SECURITY_PATCH", make_vars["RELEASE_PLATFORM_SECURITY_PATCH"])
+	fmt.Fprintf(b, "%s = %s\n", "RELEASE_PLATFORM_SECURITY_PATCH", make_vars["PLATFORM_SECURITY_PATCH"])
 	fmt.Fprintf(b, "%s = %s\n", "PRODUCT_DEFAULT_DEV_CERTIFICATE", make_vars["PRODUCT_DEFAULT_DEV_CERTIFICATE"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_BUILD_VARIANT", make_vars["TARGET_BUILD_VARIANT"])
 	fmt.Fprintf(b, "%s = %s\n", "TARGET_ARCH", make_vars["TARGET_ARCH"])
